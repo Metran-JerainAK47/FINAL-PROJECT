@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+
+       <!-- Link to external CSS file for styling -->
+    <link rel="stylesheet" href="Designlist.css">
+</head>
+<body>
+
+
+  <!-- Navigation Bar: Contains the title of the app -->
+    <nav>
+        <h3><i>  <img src="Star.png" height="15px" width="15px"> Starlist</i></h3>
+    </nav>
+
+       <!-- Main content container -->
+    <div class="container">
+
+         <!-- Main heading for the To-Do List -->
+        <h1> &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; To-do Lists  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </h1> 
+
+            <!-- Input field and button for adding tasks -->
+            <div class="task-input">
+
+                  <!-- Input field for entering new tasks -->
+                <input type="text" id="taskInput" placeholder="Enter a new task">
+
+                 <!-- Input for task due date -->
+                <input type="datetime-local" id="taskDueDate">
+               
+                <!-- Add Priority Dropdown -->
+    <select id="taskPriority" aria-label="Priority">
+        <option value="low">Low Priority</option>
+        <option value="medium">Medium Priority</option>
+        <option value="high">High Priority</option>
+    </select>
+
+     <!-- Add Category Dropdown -->
+     <select id="taskCategory" aria-label="Category">
+        <option value="work">Work</option>
+        <option value="personal">Personal</option>
+        <option value="shopping">Shopping</option>
+        <option value="other">Other</option>
+    </select>
+
+
+       <!-- Button to add a task to the list -->
+    <button id="addTaskBtn">Add Task</button>
+
+
+                <!-- Bell Icon Button -->
+                <button id="notificationBell" title="Enable Notifications" aria-label="Notifications" class="notification-bell">
+                    🔔 <!-- Bell Icon -->
+
+                </button>
+
+
+                 <!-- Progress bar to show task completion percentage -->
+                <div>
+                    <div id="progressBar" style="width: 0%; background-color: #45a049; color: white; text-align: center; height: 30px;">0% Completed</div>
+                </div>
+            </div>
+
+          
+       
+            <!-- Task statistics for daily, weekly, and monthly -->
+            <div id="stats">
+                <p id="dailyStats">Daily Completed: 0</p>
+                <p id="weeklyStats">Weekly Completed: 0</p>
+                <p id="monthlyStats">Monthly Completed: 0</p>
+            </div>
+
+            <!-- Overdue task statistics for daily, weekly, and monthly -->
+            <div id="overdueStats">
+                <p id="dailyOverdue">Daily Overdue: 0</p>
+                <p id="weeklyOverdue">Weekly Overdue: 0</p>
+                <p id="monthlyOverdue">Monthly Overdue: 0</p>
+            </div>
+
+
+             <!-- Task List Header -->
+    <div class="task-header">
+        <div class="task-column">Task lists</div>
+      
+    </div>
+
+            <!-- List of tasks -->
+            <ul id="taskList">
+                <!-- Tasks will be inserted here -->
+            </ul>
+
+            <!-- Message section for notifications -->
+            <div id="notification" class="notification" style="display: none; position: fixed; top: 20px; left: 50%; transform: translateX(-50%); background-color: #4CAF50; color: white; padding: 10px 20px; border-radius: 5px; font-size: 16px; z-index: 1000;"></div>
+        </div>
+    
+   <!-- Javascript link-->
+    <script src="actionlist.js"></script>
+</body>
+</html>

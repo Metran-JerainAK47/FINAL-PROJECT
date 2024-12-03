@@ -1,0 +1,284 @@
+
+/* Importing Google font "Poppins" */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+
+/* @font-face: Importing Poppins font locally using a TTF file */
+@font-face {
+    font-family: 'Poppins';
+    src: url('Poppins.ttf') format('opentype');
+}
+
+
+/* Global reset for margin, padding, font , and box-sizing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins';
+  }
+
+
+/* Body styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color:  #45a049;
+    color: #080000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+
+/* Navigator styling */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: black;
+    padding: 10px;
+    text-align: left;
+    z-index: 1000;
+}
+
+
+/* header 3 in navigator styling */
+nav h3 {
+    color: #fff;
+    margin-left: 10px;
+  
+}
+
+
+
+/* Container styling */
+.container {
+  padding: 10px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 1200px;
+    text-align: center;
+    margin-top: 60px; /* Space below the navbar */
+    max-height: 80vh; /* Limit the height to 80% of the viewport */
+    overflow-y: auto; /* Enable vertical scrolling if content overflows */
+}
+
+/* Header (to do lists design) */
+h1 {
+  font-size: 2em; /* Larger font size */
+  color: #333; /* Dark text color */
+  margin-bottom: 20px; /* Bottom margin */
+  padding: 10px 0; /* Vertical padding */
+  position: sticky; /* Sticky header */
+  top: 0; /* Stick the header to the top of the container */
+  background-color: white; /* White background to prevent overlap */
+  z-index: 10; /* Ensure the header stays above other content */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional shadow */
+}
+
+ 
+/* Task list */
+ul {
+  list-style-type: none; /* Remove default list styling */
+  padding: 0;
+  margin: 0;
+}
+
+/* Add this style to make the task list scrollable */
+#taskList {
+
+  
+  max-height: 400px; /* Limit the height of the task list */
+  overflow-y: auto; /* Enable vertical scrolling */
+  padding: 0;
+  margin: 0;
+  
+}
+
+/* Scrollbar styling */
+#taskList::-webkit-scrollbar {
+  width: 12px;  /* Width of the scrollbar */
+
+  
+}
+
+
+#taskList::-webkit-scrollbar-thumb {
+  background-color: #4CAF50; /* Color of the draggable part of the scrollbar */
+  border-radius: 6px; /* Rounded edges for the thumb */
+  border: 3px solid #f1f1f1; /* Optional border for the thumb */
+}
+
+#taskList::-webkit-scrollbar-thumb:hover {
+  background-color: #0e5300;  /* Darker color dragging */
+}
+
+#taskList::-webkit-scrollbar-track {
+  background: #f1f1f1;  /* white background */
+  border-radius: 6px;
+}
+
+/* Task input area */
+.task-input {
+  display: flex;
+  justify-content: center; /* Center content horizontally */
+  gap: 10px; /* Space between input elements */
+  margin-bottom: 20px; /* Margin below the input section */
+  position: sticky;
+  top: 60px; /* Sticky position below the header */
+  background-color: white; /* White background */
+  z-index: 9; /* Ensure it's above the main content */
+  padding: 10px 0; /* Padding for spacing */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* Optional shadow for visibility */
+}
+
+
+/* Styling for the task input field */
+#taskInput {
+  width: 50%; /* Half-width of the container */
+  padding: 5px;
+  border: 1px solid #ddd; /* Light border */
+  border-radius: 4px; /* Rounded corners */
+}
+
+
+/* Button styling (Add Task button) */
+#addTaskBtn {
+  padding: 10px 15px;
+  background-color: #4CAF50; /* Green background */
+  color: white; /* White text color */
+  border: none;
+  border-radius: 4px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+}
+
+
+#addTaskBtn:hover {
+    background-color: #45a049;
+}
+
+/* Task list */
+ul {
+    list-style-type: none;
+}
+
+/* List item (task) styling */
+li {
+  background-color: #f9f9f9; /* Light background */
+  padding: 10px;
+  border: 1px solid #ddd; /* Light border */
+  margin: 5px 0; /* Margin between tasks */
+  border-radius: 4px; /* Rounded corners */
+  display: flex;
+  justify-content: space-between; /* Space between task text and buttons */
+  align-items: center; /* Align items vertically */
+}
+
+/* Completed task style */
+li.completed {
+    text-decoration: line-through;
+    background-color: #85fa85;
+}
+
+/* Buttons for delete and complete actions */
+button {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #e53935;
+}
+
+/* Notification  */
+.notification {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 4px;
+    display: none; /* Hidden by default */
+}
+
+/* Style for the bell button */
+.notification-bell {
+    background-color: transparent;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.notification-bell.enabled {
+    color: green;
+}
+
+.notification-bell.disabled {
+    color: gray;
+}
+
+/* Progress bar styling */
+#progressBar {
+  width: 0%; /* Initial progress (0%) */
+  background-color: #4CAF50; /* Green background */
+  color: white; /* White text */
+  text-align: center;
+  height: 30px;
+  margin-top: 20px;
+  border-radius: 4px; /* Rounded corners */
+  transition: width 0.3s ease; /* Smooth transition for width */
+  border: 1px solid #080000; /* Dark border */
+}
+
+
+
+/* Stats and Overdue Stats */
+#stats, #overdueStats {
+    margin-top: 20px;
+    text-align: left;
+    font-size: 16px;
+}
+
+#stats p, #overdueStats p {
+    margin: 5px 0;
+}
+
+/* Stat section headers */
+#stats h2, #overdueStats h2 {
+  font-size: 1.2em; /* Slightly larger font size */
+  margin-bottom: 10px; /* Margin below header */
+}
+
+
+/* Styling individual stat sections */
+#stats p, #overdueStats p {
+  background-color: #f4f4f4; /* Light background */
+  padding: 5px 10px; /* Padding around text */
+  margin-bottom: 5px;
+  border-radius: 4px;
+  border: 1px solid #ddd; /* Border around each stat */
+}
+
+
+/* Task list header styling */
+.task-header {
+  display: flex;
+  justify-content: space-between; /* Space between columns */
+  font-weight: bold; /* Bold text */
+  padding: 10px;
+  background-color: #f1f1f1; /* Light gray background */
+  border-bottom: 2px solid #ddd; /* Border below header */
+  border: 1px solid black; /* Border around the header */
+}
+
+.task-column {
+  flex: 1;
+  text-align: center; /* Center-align task column text */
+}
+
