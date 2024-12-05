@@ -183,6 +183,15 @@ li.completed {
     background-color: #85fa85;
 }
 
+
+/* Styling the input field for editing */
+.task-item input {
+  width: 70%;
+  padding: 5px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
 /* Buttons for delete and complete actions */
 button {
     background-color: #f44336;
