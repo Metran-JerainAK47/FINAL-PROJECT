@@ -1,3 +1,6 @@
+
+
+
 document.addEventListener("DOMContentLoaded", function () {
      // DOM elements
     const addTaskBtn = document.getElementById("addTaskBtn");
@@ -347,5 +350,14 @@ addTaskBtn.addEventListener("click", () => {
     startOverdueCheck();
 });
 
+
+//THE MODAL FUNCTION
+function openModal() { //open modal
+    document.getElementById("modal").style.display = "block";
+}
+
+function closeModal() { // close modal
+    document.getElementById("modal").style.display = "none";
+}
 
 
