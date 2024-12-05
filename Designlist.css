@@ -42,6 +42,83 @@
 }
 
 
+/* MODAL CSS CODE */
+
+.modal {
+  
+  display: none; 
+  position:fixed;
+  z-index: 1; 
+
+}
+
+
+.bottom-button {
+    
+  box-shadow: 2px 5px 5px  black ;
+  padding: 10px 15px;
+  background-color: #4CAF50; /* Green background */
+  color: white; /* White text color */
+  border: none;
+  border-radius: 4px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+}
+
+
+.wrapper {
+
+  
+transition: background-color 0.3s ease;
+animation: fadeInOut 0.5s ease-in-out;
+  box-shadow: 2px 5px 5px  black ;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  position: sticky;
+  top: 60px;
+  background-color: white;
+  z-index: 9;
+  padding: 10px; /* Increased padding for more inner space */
+  min-height: 150px; /* Ensure a minimum height */
+  margin-bottom: 30px; /* Increase space below the wrapper */
+ 
+  border: 1px solid black;
+}
+
+
+/*fading animation*/
+@keyframes fadeInOut{
+  0%   { 
+      opacity: 0;
+  }
+  100% {
+      opacity: 1;
+  }
+  }
+
+
+  
+/* The close button inside the wrapper */
+.wrapper .close {
+  color: #aaa; /* Light gray color */
+  font-size: 28px; /* Large font size for visibility */
+  font-weight: bold; /* Bold font */
+  float: right; /* Align the close button to the right */
+  cursor: pointer; /* Pointer cursor on hover */
+}
+
+.close {
+  float :right;
+  margin-left: 170px;
+}
+
+
+.wrapper .close:hover {
+  color: #555; /* Darker gray color on hover */
+}
+
+
 
 /* Global reset for margin, padding, font , and box-sizing */
 * {
@@ -87,10 +164,11 @@ nav h3 {
 
 /* Container styling */
 .container {
-  padding: 10px;
+  padding: 20px;
     background-color: white;
     border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+   
+  box-shadow: 2px 5px 5px  black ;
     width: 100%;
     max-width: 1200px;
     text-align: center;
@@ -157,7 +235,6 @@ ul {
 /* Task input area */
 .task-input {
   
-  flex-direction: column; /* Stack input and button on smaller screens */
   gap: 5px; /* Reduce the gap for smaller layouts */
   display: flex;
   justify-content: center; /* Center content horizontally */
@@ -172,9 +249,10 @@ ul {
 }
 
 
+
 /* Styling for the task input field */
 #taskInput {
-  width: 50%; /* Half-width of the container */
+  width: 100%; /* Half-width of the container */
   padding: 5px;
   border: 1px solid #ddd; /* Light border */
   border-radius: 4px; /* Rounded corners */
@@ -203,6 +281,10 @@ ul {
 
 /* List item (task) styling */
 li {
+  
+  
+transition: background-color 0.3s ease;
+animation: fadeInOut 0.5s ease-in-out;
   background-color: #f9f9f9; /* Light background */
   padding: 10px;
   border: 1px solid #ddd; /* Light border */
@@ -215,6 +297,10 @@ li {
 
 /* Completed task style */
 li.completed {
+  
+  
+transition: background-color 0.3s ease;
+animation: fadeInOut 0.5s ease-in-out;
     text-decoration: line-through;
     background-color: #85fa85;
 }
@@ -241,11 +327,15 @@ button {
 }
 
 button:hover {
-    background-color: #e53935;
+    background-color:#46a149;
 }
 
 /* Notification  */
 .notification {
+  
+  
+transition: background-color 0.3s ease;
+animation: fadeInOut 0.5s ease-in-out;
     background-color: #4CAF50;
     color: white;
     padding: 10px;
@@ -256,7 +346,9 @@ button:hover {
 
 /* Style for the bell button */
 .notification-bell {
-    background-color: transparent;
+  
+  box-shadow: 2px 5px 5px  black ;
+    background-color:  #4CAF50;
     border: none;
     font-size: 2rem;
     cursor: pointer;
