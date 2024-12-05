@@ -25,6 +25,20 @@
             <!-- Input field and button for adding tasks -->
             <div class="task-input">
 
+
+                <button class="bottom-button" onclick="openModal()">+ ADD TASK</button>
+
+                <div id="modal" class="modal">
+                    <div class="modal-content">
+                <div class="wrapper">
+                    
+                   <span class="close" onclick="closeModal()">&times;</span>
+
+                   <h2>Add task</h2>
+
+
+
+
                   <!-- Input field for entering new tasks -->
                 <input type="text" id="taskInput" placeholder="Enter a new task">
 
@@ -48,8 +62,11 @@
 
 
        <!-- Button to add a task to the list -->
-    <button id="addTaskBtn">Add Task</button>
+    <button id="addTaskBtn" onclick="closeModal()">Create Task</button>
 
+    </div>
+        </div>
+            </div>
 
                 <!-- Bell Icon Button -->
                 <button id="notificationBell" title="Enable Notifications" aria-label="Notifications" class="notification-bell">
