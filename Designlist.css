@@ -9,6 +9,39 @@
     src: url('Poppins.ttf') format('opentype');
 }
 
+@media (max-width: 768px) {
+  /* Adjust the container for smaller screens */
+  .container {
+    width: 90%; /* Make it take up most of the screen width */
+    margin-top: 70px; /* Extra space for navigation on smaller screens */
+  }
+
+  /* Reduce the font size for headers */
+  h1 {
+    font-size: 1.5em;
+  }
+
+  /* Input field and button adjustments */
+  #taskInput {
+    width: 70%; /* Increase width to fit mobile screens better */
+  }
+
+  #addTaskBtn {
+    padding: 8px 12px; /* Slightly smaller padding for better fit */
+  }
+
+  /* Navbar adjustments */
+  nav h3 {
+    font-size: 1rem;
+  }
+
+  /* Stat sections */
+  #stats, #overdueStats {
+    font-size: 14px;
+  }
+}
+
+
 
 /* Global reset for margin, padding, font , and box-sizing */
 * {
@@ -123,6 +156,9 @@ ul {
 
 /* Task input area */
 .task-input {
+  
+  flex-direction: column; /* Stack input and button on smaller screens */
+  gap: 5px; /* Reduce the gap for smaller layouts */
   display: flex;
   justify-content: center; /* Center content horizontally */
   gap: 10px; /* Space between input elements */
@@ -183,7 +219,6 @@ li.completed {
     background-color: #85fa85;
 }
 
-
 /* Styling the input field for editing */
 .task-item input {
   width: 70%;
@@ -200,6 +235,9 @@ button {
     padding: 5px 10px;
     border-radius: 4px;
     cursor: pointer;
+    min-width: 40px;
+    min-height: 40px;
+    
 }
 
 button:hover {
