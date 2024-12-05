@@ -51,35 +51,94 @@ document.addEventListener("DOMContentLoaded", function () {
         updateOverdueStats(); // Update overdue stats
     };
 
-    // Create a new task element in the list 
     const createTaskElement = (task, index) => {
         const li = document.createElement("li");
-        li.textContent = task.text;
-
+        li.classList.add("task-item"); // Add a class for easy styling if needed
+    
+        // Task text display
+        const taskText = document.createElement("span");
+        taskText.textContent = task.text;
+        taskText.classList.add("task-text");
+        li.appendChild(taskText);
+    
+        // Show due date if exists
         if (task.dueDate) {
             const dueDateDisplay = document.createElement("span");
             dueDateDisplay.textContent = ` (Due: ${new Date(task.dueDate).toLocaleString()})`;
             li.appendChild(dueDateDisplay);
         }
-
+    
+        // Show task completion
         if (task.completed) {
             li.classList.add("completed");
         }
-
-         // Create complete and delete buttons for each task
+    
+        // Create Edit Button
+        const editBtn = document.createElement("button");
+        editBtn.textContent = "✏️ Edit";
+        editBtn.onclick = () => editTask(task, index, li, taskText);
+    
+        // Create Complete Button
         const completeBtn = document.createElement("button");
         completeBtn.textContent = "✓";
         completeBtn.onclick = () => markTaskComplete(task, index, li);
-
+    
+        // Create Delete Button
         const deleteBtn = document.createElement("button");
         deleteBtn.textContent = "X";
         deleteBtn.onclick = () => deleteTask(index, li);
-
+    
+        // Append buttons to the task item
+        li.appendChild(editBtn);
         li.appendChild(completeBtn);
         li.appendChild(deleteBtn);
+    
         taskList.appendChild(li);
     };
 
+    const editTask = (task, index, li, taskText) => {
+        // Create an input field and set its value to the current task name
+        const inputField = document.createElement("input");
+        inputField.type = "text";
+        inputField.value = task.text;
+        li.replaceChild(inputField, taskText); // Replace the task name with the input field
+    
+        // Focus on the input field to make editing easier
+        inputField.focus();
+    
+        // Change button text to "Save"
+        const editBtn = li.querySelector("button");
+        editBtn.textContent = "💾 Save";
+        editBtn.onclick = () => saveEditedTask(task, index, li, inputField); // Change to save logic
+    };
+    
+    // Save the edited task
+    const saveEditedTask = (task, index, li, inputField) => {
+        const newTaskText = inputField.value.trim();
+    
+        if (newTaskText === "") {
+            alert("Its empty you silly!");
+            return;
+        }
+    
+        task.text = newTaskText; // Update the task's name
+        const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+        tasks[index] = task; // Save the updated task to the array
+        localStorage.setItem("tasks", JSON.stringify(tasks)); // Update localStorage
+    
+        const newTaskTextSpan = document.createElement("span");
+        newTaskTextSpan.textContent = newTaskText;
+        li.replaceChild(newTaskTextSpan, inputField); // Replace the input field with the updated task name
+    
+        // Reset the Edit button back to "Edit"
+        const editBtn = li.querySelector("button");
+        editBtn.textContent = "✏️ Edit";
+        editBtn.onclick = () => editTask(task, index, li, newTaskTextSpan); // Revert to edit mode
+    
+        showNotification("Task edited!");
+    };
+    
+    
    // Add a task
 addTaskBtn.addEventListener("click", () => {
     const newTaskText = taskInput.value.trim();
@@ -287,3 +346,6 @@ addTaskBtn.addEventListener("click", () => {
     loadTasks();
     startOverdueCheck();
 });
+
+
+
