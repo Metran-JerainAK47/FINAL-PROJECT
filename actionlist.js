@@ -360,4 +360,89 @@ function closeModal() { // close modal
     document.getElementById("modal").style.display = "none";
 }
 
+document.addEventListener("DOMContentLoaded", function () {
+    const container = document.querySelector('.container');
+    const footer = document.querySelector('footer');
+
+    container.addEventListener('scroll', () => {
+        if (container.scrollHeight - container.scrollTop === container.clientHeight) {
+            footer.classList.add('scrolled-to-bottom');
+        } else {
+            footer.classList.remove('scrolled-to-bottom');
+        }
+    });
+
+    // Your existing JavaScript code for handling tasks
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    const container = document.querySelector('.container');
+    const footer = document.querySelector('footer');
+
+    container.addEventListener('scroll', () => {
+        if (container.scrollHeight - container.scrollTop === container.clientHeight) {
+            footer.style.bottom = '0'; // Show footer when scrolled to the bottom
+        } else {
+            footer.style.bottom = '-60px'; // Hide footer otherwise
+        }
+    });
+
+    // Your existing JavaScript code for handling tasks
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    const container = document.querySelector('.container');
+    const footer = document.querySelector('footer');
+    let isScrolling = false;
+
+    // Check if the cursor is outside the container
+    const isCursorOutsideContainer = (event) => {
+        const rect = container.getBoundingClientRect();
+        return event.clientX < rect.left || event.clientX > rect.right || 
+               event.clientY < rect.top || event.clientY > rect.bottom;
+    };
+
+    // Scroll event listener on the document
+    document.addEventListener('scroll', () => {
+        if (isScrolling && !isCursorOutsideContainer(event)) {
+            footer.style.bottom = '-60px'; // Hide footer if cursor is inside the container
+        }
+    });
+
+    // Mouse move event listener
+    document.addEventListener('mousemove', (event) => {
+        if (isCursorOutsideContainer(event)) {
+            footer.style.bottom = '0'; // Show footer if cursor is outside the container
+        } else {
+            footer.style.bottom = '-60px'; // Hide footer if cursor is inside the container
+        }
+    });
+
+    // Scroll event listener on the container
+    container.addEventListener('scroll', () => {
+        isScrolling = true;
+        if (isCursorOutsideContainer(event)) {
+            footer.style.bottom = '0'; // Show footer if cursor is outside the container while scrolling
+        } else {
+            footer.style.bottom = '-60px'; // Hide footer otherwise
+        }
+        window.clearTimeout(isScrolling);
+        isScrolling = setTimeout(() => {
+            isScrolling = false;
+        }, 150);
+    });
+});
+
+
+/*Intro animation*/
+document.addEventListener("DOMContentLoaded", function() {
+    const intro = document.querySelector('.intro');
+    const content = document.querySelector('.content');
+
+    setTimeout(() => {
+        intro.style.opacity = '0';
+        intro.style.visibility = 'hidden';
+        content.style.display = 'block';
+    }, 3000); // Adjust the duration as needed
+});
 
