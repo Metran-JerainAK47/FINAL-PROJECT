@@ -126,6 +126,7 @@ animation: fadeInOut 0.5s ease-in-out;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins';
+   
   }
 
 
@@ -137,7 +138,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+   
 }
 
 
@@ -160,22 +161,101 @@ nav h3 {
   
 }
 
-
-
 /* Container styling */
 .container {
+
   padding: 20px;
-    background-color: white;
-    border-radius: 8px;
-   
-  box-shadow: 2px 5px 5px  black ;
-    width: 100%;
-    max-width: 1200px;
-    text-align: center;
-    margin-top: 60px; /* Space below the navbar */
-    max-height: 80vh; /* Limit the height to 80% of the viewport */
-    overflow-y: auto; /* Enable vertical scrolling if content overflows */
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 2px 5px 5px black;
+  width: 100%;
+  max-width: 1200px;
+  text-align: center;
+  margin: 60px auto 60px auto; /* Center the container horizontally and space it vertically */
+  max-height: 80vh; /* Limit the height to 80% of the viewport */
+  flex: 1; /* Allow the container to grow and take up available space */
+  overflow: auto; /* Allow the container to scroll */
+  margin-bottom: 60px; /* Create space for the footer */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  scrollbar-width: none; /* Firefox */
 }
+
+body, html {
+  height: 100%; /* Ensure the body and HTML elements take up full height */
+  margin: 0; /* Remove default margin */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  overflow: hidden; /* Hide the scrollbar */
+}
+
+
+/*Intro design*/
+.intro { 
+  position: fixed; 
+  width: 100%; 
+  height: 100%; 
+  background-color: black; /* Background color for intro */ 
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  z-index: 10; /* Ensure it overlays the rest of the content */ 
+  transition: opacity 1s ease, visibility 1s ease; 
+}
+
+
+.intro .logo { 
+  max-width: 50%; 
+  animation: fadeIn 2s ease-in-out; 
+}
+
+.logo {
+ 
+height: 100px;
+width: 100px;
+background: transparent;
+color:white;
+font-size: 70px;
+}
+
+.content {
+   display: none; /* Hide content initially */
+    width: 100%; height: 100%;
+   }
+   
+   @keyframes fadeIn {
+     0% { 
+      opacity: 0; 
+    } 
+    100% { 
+      opacity: 1;
+     } 
+    }
+
+
+
+footer {
+  font-family: Arial, sans-serif;
+  position: fixed; /* Fixed position so it stays at the bottom */
+  bottom: -60px; /* Start hidden */
+  width: 100%;
+  padding: 10px;
+  background-color: #f1f1f1;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+  height: 60px; /* Adjust this value based on your actual footer height */
+  transition: bottom 0.3s;
+}
+
+/* Show footer when container is scrolled to the bottom */ 
+.container.scrolled-to-bottom + footer { 
+  transform: translateY(0); /* Show footer */ 
+}
+
+
+.container::-webkit-scrollbar { 
+  display: none; /* Hide scrollbar for WebKit-based browsers (Chrome, Safari) */ 
+}
+
 
 /* Header (to do lists design) */
 h1 {
@@ -187,7 +267,7 @@ h1 {
   top: 0; /* Stick the header to the top of the container */
   background-color: white; /* White background to prevent overlap */
   z-index: 10; /* Ensure the header stays above other content */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional shadow */
+  
 }
 
  
@@ -212,8 +292,6 @@ ul {
 /* Scrollbar styling */
 #taskList::-webkit-scrollbar {
   width: 12px;  /* Width of the scrollbar */
-
-  
 }
 
 
@@ -420,4 +498,5 @@ animation: fadeInOut 0.5s ease-in-out;
   flex: 1;
   text-align: center; /* Center-align task column text */
 }
+
 
