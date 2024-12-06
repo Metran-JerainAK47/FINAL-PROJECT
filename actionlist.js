@@ -312,7 +312,39 @@ addTaskBtn.addEventListener("click", () => {
         monthlyStats.textContent = `Monthly Completed: ${monthlyCompleted}`;
     };
 
-   
+    // Get overdue tasks based on a specific date range
+    const getOverdueTasks = (range) => {
+        const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+        const currentTime = new Date().getTime();
+
+        return tasks.filter(task => {
+            if (!task.dueDate || task.completed) return false;
+            
+            const taskDueDate = task.dueDate;
+            switch (range) {
+                case 'daily':
+                    return taskDueDate < currentTime - 24 * 60 * 60 * 1000;
+                case 'weekly':
+                    return taskDueDate < currentTime - 7 * 24 * 60 * 60 * 1000;
+                case 'monthly':
+                    return taskDueDate < currentTime - 30 * 24 * 60 * 60 * 1000;
+                default:
+                    return false;
+            }
+        }).length;
+    };
+
+    // Update overdue stats (daily, weekly, monthly)
+    const updateOverdueStats = () => {
+        const dailyOverdueCount = getOverdueTasks('daily');
+        const weeklyOverdueCount = getOverdueTasks('weekly');
+        const monthlyOverdueCount = getOverdueTasks('monthly');
+        
+        dailyOverdue.textContent = `Daily Overdue: ${dailyOverdueCount}`;
+        weeklyOverdue.textContent = `Weekly Overdue: ${weeklyOverdueCount}`;
+        monthlyOverdue.textContent = `Monthly Overdue: ${monthlyOverdueCount}`;
+    };
+
     // Initial load of tasks
     loadTasks();
     startOverdueCheck();
