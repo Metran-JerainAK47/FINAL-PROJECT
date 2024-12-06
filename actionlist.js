@@ -224,7 +224,7 @@ addTaskBtn.addEventListener("click", () => {
 
     // Start checking overdue tasks every 2 seconds when the page is visible
     const startOverdueCheck = () => {
-        overdueCheckInterval = setInterval(checkOverdueTasks, 1000); // Check every 1 seconds (for testing purposes)
+        overdueCheckInterval = setInterval(checkOverdueTasks, 10000); // Check every 1 seconds (for testing purposes)
     };
 
     // Stop checking overdue tasks when the page is hidden
